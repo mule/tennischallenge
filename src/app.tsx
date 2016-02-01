@@ -11,6 +11,28 @@ class App extends React.Component<{},{}> {
     }
 
     render() {
+
+        var games: IGame[] =
+            [
+                {
+                id: "1",
+                gameType: 1,
+                date: 100,
+                challenger: {id: "1", name: "Bura"},
+                defender: {id:"2", name: "Markku"},
+                challengerPoints: 0,
+                defenderPoints: 2
+                },
+                {
+                    id: "2",
+                    gameType: 2,
+                    date: 200,
+                    challenger: {id: "1", name: "Bura"},
+                    defender: {id:"2", name: "Markku"},
+                    challengerPoints: 2,
+                    defenderPoints: 0
+                }
+            ];
         return (
             <div>
                 <div className="navbar">
@@ -58,7 +80,7 @@ class App extends React.Component<{},{}> {
                 </div>
                 <div className="row">
                     <div className="col s12">
-                        <GameList></GameList>
+                        <GameList games={games}></GameList>
                     </div>
                 </div>
             </div>
