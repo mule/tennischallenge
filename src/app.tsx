@@ -2,12 +2,12 @@
 import React = require('react');
 import ReactDOM = require('react-dom');
 import {Router, Route, Link, History, PropTypes} from 'react-router';
+import GameList from './components/gamelist';
 
 
 class App extends React.Component<{},{}> {
     constructor( props:any ) {
         super( props );
-
     }
 
     render() {
@@ -56,21 +56,27 @@ class App extends React.Component<{},{}> {
                         </div>
                     </div>
                 </div>
+                <div className="row">
+                    <div className="col s12">
+                        <GameList></GameList>
+                    </div>
+                </div>
             </div>
         );
-
-
     }
-
-
 }
 
 
 ReactDOM.render( (
-    <Router>
-        <Route component={App} path="/">
-        </Route>
+        <Router>
+            <Route component={App} path="/">
+            </Route>
+        </Router>
+    ),
+    document
+        .getElementById(
+            'app'
+        ) );
 
-    </Router>), document.getElementById( 'app' ) );
 
 
