@@ -1,20 +1,21 @@
+"user strict";
 import React = require('react');
 import ReactDOM = require('react-dom');
 import {Router, Route, Link, History, PropTypes} from 'react-router';
 
 
 class App extends React.Component<{},{}> {
-    constructor(props: any) {
-        super(props);
+    constructor( props:any ) {
+        super( props );
 
     }
 
     render() {
         return (
             <div>
-                <div className="navbar-fixed">
-                    <nav>
-                        <div className="nav-wrapper">
+                <div className="navbar">
+                    <nav role="navigation">
+                        <div className="nav-wrapper container">
                             <a href="#!" className="brand-logo">Tennis Challenge</a>
                             <ul className="right hide-on-med-and-down">
                                 <li>
@@ -29,35 +30,31 @@ class App extends React.Component<{},{}> {
                 </div>
 
                 <div className="row">
-                    <div className="col s6"></div>
-                    <div className="card blue-grey darken-1">
-                        <div className="card-content white-text">
-                            <span className="card-title">Viitoset</span>
-                            <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.
-                            </p>
-                        </div>
-                        <div className="card-action">
-                            <a href="#">This is a link</a>
-                            <a href="#">This is a link</a>
-                        </div>
-                    </div>
-                </div>
-                <div className="col s6">
-                    <div className="card blue-grey darken-1">
-                        <div className="card-content white-text">
-                            <span className="Three points">Viitoset</span>
-                            <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.
-                            </p>
-                        </div>
-                        <div className="card-action">
-                            <a href="#">This is a link</a>
-                            <a href="#">This is a link</a>
+                    <div className="col s6">
+                        <div className="card blue-grey darken-1">
+                            <div className="card-content white-text">
+                                <span className="card-title">Viitoset</span>
+                                <p>I am a very simple card. I am good at containing small bits of information.
+                                </p>
+                            </div>
+                            <div className="card-action">
+                                <a href="#">This is a link</a>
+                                <a href="#">This is a link</a>
+                            </div>
                         </div>
                     </div>
-
-
+                    <div className="col s6">
+                        <div className="card blue-grey darken-1">
+                            <div className="card-content white-text">
+                                <span className="card-title">Best out of three games</span>
+                                <p>I am a very simple card. I am good at containing small bits of information.
+                                </p>
+                            </div>
+                            <div className="card-action">
+                                <a href="#">This is a link</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         );
@@ -69,11 +66,11 @@ class App extends React.Component<{},{}> {
 }
 
 
-ReactDOM.render((
+ReactDOM.render( (
     <Router>
         <Route component={App} path="/">
         </Route>
 
-    </Router>), document.getElementById('app'));
+    </Router>), document.getElementById( 'app' ) );
 
 

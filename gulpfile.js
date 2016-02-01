@@ -36,7 +36,7 @@ gulp.task('js', function() {
       basedir: './src',
       extensions: ['.js'],
       debug: true
-    }).transform(babelify)
+    }).transform(babelify, {presets: ["es2015"]})
       .bundle()
       .pipe(source(entry))
       .pipe(plumber())
