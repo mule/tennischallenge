@@ -1,4 +1,4 @@
-"user strict";
+
 import React = require('react');
 import ReactDOM = require('react-dom');
 import {Router, Route, Link, History, PropTypes} from 'react-router';

@@ -8,6 +8,7 @@ interface  IPlayer{
     name: string;
 }
 
+
 interface  IGame{
     id: string;
     date: number;
@@ -19,6 +20,9 @@ interface  IGame{
 
 }
 
+interface IGameProps {
+    game: IGame;
+}
 
 interface IGameListProps{
     games: IGame[];
