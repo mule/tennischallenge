@@ -1,8 +1,8 @@
 
 import React = require('react');
 import ReactDOM = require('react-dom');
-import {Router, Route, Link, History, PropTypes} from 'react-router';
-import GameList from './components/gamelist';
+import {Router,IndexRoute, Route, Link, History, PropTypes} from 'react-router';
+import Dashboard from './views/Dashboard';
 
 
 class App extends React.Component<{},{}> {
@@ -50,38 +50,8 @@ class App extends React.Component<{},{}> {
                         </div>
                     </nav>
                 </div>
-
-                <div className="row">
-                    <div className="col s6">
-                        <div className="card blue-grey darken-1">
-                            <div className="card-content white-text">
-                                <span className="card-title">Viitoset</span>
-                                <p>I am a very simple card. I am good at containing small bits of information.
-                                </p>
-                            </div>
-                            <div className="card-action">
-                                <a href="#">This is a link</a>
-                                <a href="#">This is a link</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col s6">
-                        <div className="card blue-grey darken-1">
-                            <div className="card-content white-text">
-                                <span className="card-title">Best out of three games</span>
-                                <p>I am a very simple card. I am good at containing small bits of information.
-                                </p>
-                            </div>
-                            <div className="card-action">
-                                <a href="#">This is a link</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col s12">
-                        <GameList games={games}></GameList>
-                    </div>
+                <div className="detail">
+                    {this.props.children}
                 </div>
             </div>
         );
@@ -92,6 +62,8 @@ class App extends React.Component<{},{}> {
 ReactDOM.render( (
         <Router>
             <Route component={App} path="/">
+                <IndexRoute component={Dashboard} />
+                <Route component={AddGameView} path="games/add"></Route>
             </Route>
         </Router>
     ),
