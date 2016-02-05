@@ -1,4 +1,5 @@
 import React = require('react');
+import {Link}   from 'react-router';
 import Game from './game';
 
 class GameList extends React.Component<IGameListProps,{}> {
@@ -20,34 +21,6 @@ class GameList extends React.Component<IGameListProps,{}> {
             <div className="card blue-grey darken-1">
                 <div className="card-content white-text">
                     <span className="card-title">Games played</span>
-                    <div className="row">
-                        <div className="col s2">
-                            <input id="date" type="text" className="validate"/>
-
-                            <label htmlFor="date">Date</label>
-                        </div>
-                        <div className="col s2">
-                            <input id="challenger" type="text" className="validate"/>
-
-                            <label htmlFor="challenger">Challenger</label>
-                        </div>
-                        <div className="col s2">
-                            <input id="defender" type="text" className="validate"/>
-                            <label htmlFor="defender">Defender</label>
-                        </div>
-                        <div className="col s2">
-                            <input id="defender_points" type="text" className="validate"/>
-                            <label htmlFor="defender_points">Defender points</label>
-                        </div>
-                        <div className="col s2">
-                            <input id="challenger_points" type="text" className="validate"/>
-                            <label htmlFor="challenger_points">Challenger points</label>
-                        </div>
-                        <div className="col s1  ">
-                            <input id="game_type" type="text" className="validate"/>
-                            <label htmlFor="game_type">Game type</label>
-                        </div>
-                    </div>
                     <table>
                         <thead>
                             <tr>
@@ -68,7 +41,7 @@ class GameList extends React.Component<IGameListProps,{}> {
 
                 </div>
                 <div className="card-action">
-                    <a href="#">This is a link</a>
+                    <Link to="/games/add">Add Game</Link>
                 </div>
             </div>
         );

@@ -3,9 +3,10 @@ import React = require('react');
 import ReactDOM = require('react-dom');
 import {Router,IndexRoute, Route, Link, History, PropTypes} from 'react-router';
 import Dashboard from './views/Dashboard';
+import AddGameView from './views/AddGameView';
 
 
-class App extends React.Component<{},{}> {
+class App extends React.Component<any,any> {
     constructor( props:any ) {
         super( props );
     }
