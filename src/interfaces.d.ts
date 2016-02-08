@@ -10,7 +10,7 @@ interface  IPlayer{
 
 
 interface  IGame{
-    id: string;
+    id: number;
     date: number;
     gameType: number;
     challenger: IPlayer;

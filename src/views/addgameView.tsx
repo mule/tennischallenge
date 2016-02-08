@@ -1,4 +1,6 @@
-import React = require('react');
+import * as React from 'react';
+import PlayerInput from '../components/playerInput';
+import * as GameActions from '../actions/games';
 
 class AddGameView extends React.Component<any,any> {
     constructor(props: any) {
@@ -18,11 +20,11 @@ class AddGameView extends React.Component<any,any> {
                             <label htmlFor="date">Date</label>
                         </div>
                         <div className="col s2">
-                            <input id="challenger" type="text" className="validate"/>
+                                <PlayerInput />
                             <label htmlFor="challenger">Challenger</label>
                         </div>
                         <div className="col s2">
-                            <input id="defender" type="text" className="validate"/>
+                            <PlayerInput />
                             <label htmlFor="defender">Defender</label>
                         </div>
                         <div className="col s2">

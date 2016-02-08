@@ -9,8 +9,7 @@ class Dashboard extends React.Component<{},{}> {
     render() {
         var games: IGame[] =
             [
-                {
-                    id: "1",
+                {   id: 1,
                     gameType: 1,
                     date: 100,
                     challenger: {id: "1", name: "Bura"},
@@ -19,7 +18,7 @@ class Dashboard extends React.Component<{},{}> {
                     defenderPoints: 2
                 },
                 {
-                    id: "2",
+                    id: 2,
                     gameType: 2,
                     date: 200,
                     challenger: {id: "1", name: "Bura"},

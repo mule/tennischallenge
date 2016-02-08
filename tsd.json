@@ -6,7 +6,7 @@
   "bundle": "typings/tsd.d.ts",
   "installed": {
     "react/react.d.ts": {
-      "commit": "5d0f2126c8dac8fce0ff020218aea06607213b0d"
+      "commit": "4ec3c5bf291bc02f49eb30c1077340b235165c67"
     },
     "react-router/history.d.ts": {
       "commit": "5d0f2126c8dac8fce0ff020218aea06607213b0d"
@@ -19,6 +19,21 @@
     },
     "react/react-dom.d.ts": {
       "commit": "5d0f2126c8dac8fce0ff020218aea06607213b0d"
+    },
+    "lodash/lodash.d.ts": {
+      "commit": "4ec3c5bf291bc02f49eb30c1077340b235165c67"
+    },
+    "react-redux/react-redux.d.ts": {
+      "commit": "4ec3c5bf291bc02f49eb30c1077340b235165c67"
+    },
+    "redux/redux.d.ts": {
+      "commit": "3030a4be536b6530c06b80081f1333dc0de4d703"
+    },
+    "redux-actions/redux-actions.d.ts": {
+      "commit": "4ec3c5bf291bc02f49eb30c1077340b235165c67"
+    },
+    "classnames/classnames.d.ts": {
+      "commit": "f7164a47ffe5e9a7ea2f4bec8fc4009347c64f6d"
     }
   }
 }
