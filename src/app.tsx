@@ -2,6 +2,8 @@
 import React = require('react');
 import * as Redux from 'redux';
 import * as ReactRedux  from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import ReactDOM = require('react-dom');
 import {Router,IndexRoute, Route, Link, History, PropTypes} from 'react-router';
 import Dashboard from './views/Dashboard';
@@ -9,6 +11,8 @@ import AddGameView from './views/AddGameView';
 
 import {rootReducer} from "./reducers/rootReducer";
 import createStore = Redux.createStore;
+import * as GameActions from './actions/games';
+import * as PlayerActions from './actions/players';
 
 
 
@@ -33,6 +37,8 @@ constructor(props: any){
 
 }
 
+
+
 class App extends React.Component<any,any> {
     constructor( props:any ) {
         super( props );
@@ -40,8 +46,10 @@ class App extends React.Component<any,any> {
     }
 
     render() {
+        const { games, players, dispatch } = this.props;
+        const playerActions = bindActionCreators(PlayerActions, dispatch);
 
-        var games: IGame[] =
+        var gamesData: IGame[] =
             [
                 {
                 id: 1,

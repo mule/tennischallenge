@@ -1,7 +1,5 @@
 import { createAction, Action } from 'redux-actions';
 import { assign } from 'lodash';
-
-
 import * as types from '../constants/ActionTypes';
 
 

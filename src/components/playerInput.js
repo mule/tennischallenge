@@ -1,5 +1,6 @@
 var React = require('react');
 var classNames = require('classnames');
+var PlayerActions = require('../actions/players');
 class PlayerInput extends React.Component {
     constructor(props) {
         super(props);
@@ -19,8 +20,7 @@ class PlayerInput extends React.Component {
         this.setState({ name: e.target.value });
     }
     handleBlur(e) {
-        if (!this.props.newPlayer) {
-        }
+        this.store.dispatch(PlayerActions.addPlayer({ name: 'Test' }));
     }
     render() {
         return (React.createElement("input", {"className": classNames({

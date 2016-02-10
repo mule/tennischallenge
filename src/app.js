@@ -1,12 +1,14 @@
 var React = require('react');
 var Redux = require('redux');
 var ReactRedux = require('react-redux');
+var redux_1 = require('redux');
 var ReactDOM = require('react-dom');
 var react_router_1 = require('react-router');
 var Dashboard_1 = require('./views/Dashboard');
 var AddGameView_1 = require('./views/AddGameView');
 var rootReducer_1 = require("./reducers/rootReducer");
 var createStore = Redux.createStore;
+var PlayerActions = require('./actions/players');
 let store = createStore(rootReducer_1.rootReducer);
 class ReduxApp extends React.Component {
     constructor(props) {
@@ -21,7 +23,9 @@ class App extends React.Component {
         super(props);
     }
     render() {
-        var games = [
+        const { games, players, dispatch } = this.props;
+        const playerActions = redux_1.bindActionCreators(PlayerActions, dispatch);
+        var gamesData = [
             {
                 id: 1,
                 gameType: 1,

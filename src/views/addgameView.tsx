@@ -1,6 +1,7 @@
 import * as React from 'react';
 import PlayerInput from '../components/playerInput';
 import * as GameActions from '../actions/games';
+import { connect } from 'react-redux';
 
 class AddGameView extends React.Component<any,any> {
     constructor(props: any) {
@@ -54,4 +55,4 @@ class AddGameView extends React.Component<any,any> {
     }
 }
 
-export default AddGameView;
+export default connect()(AddGameView);
