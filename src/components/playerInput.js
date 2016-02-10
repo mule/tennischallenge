@@ -1,6 +1,13 @@
 var React = require('react');
 var classNames = require('classnames');
 var PlayerActions = require('../actions/players');
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onNameAdded: (name) => {
+            dispatch(PlayerActions.addPlayer(name));
+        }
+    };
+};
 class PlayerInput extends React.Component {
     constructor(props) {
         super(props);
@@ -20,7 +27,6 @@ class PlayerInput extends React.Component {
         this.setState({ name: e.target.value });
     }
     handleBlur(e) {
-        this.store.dispatch(PlayerActions.addPlayer({ name: 'Test' }));
     }
     render() {
         return (React.createElement("input", {"className": classNames({

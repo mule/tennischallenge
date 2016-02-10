@@ -3,13 +3,39 @@ import PlayerInput from '../components/playerInput';
 import * as GameActions from '../actions/games';
 import { connect } from 'react-redux';
 
-class AddGameView extends React.Component<any,any> {
+const mapDispatchToProps = (dispatch: Function) => {
+    return {
+        addGame: (game: IGame) => {
+            dispatch(GameActions.addGame(game))
+        }
+    }
+}
+
+
+class AddGameView extends React.Component<{addGame: Function},any> {
     constructor(props: any) {
         super(props);
 
     }
 
+
+    onAddGameClick(e: any) {
+        e.preventDefault();
+        var game: IGame;
+        var challenger: IPlayer;
+        var defender: IPlayer;
+        challenger = {id: 1, name: 'Bura'};
+        defender =  {id:2, name: 'Markku'};
+        game = {id: 1, date: 100, gameType: 1, challenger: challenger, defender: defender, challengerPoints: 0 , defenderPoints:2};
+
+        this.props.addGame(game);
+
+    }
+
+
     render() {
+
+        var boundClick = this.onAddGameClick.bind(this);
 
         return (
 
@@ -21,11 +47,11 @@ class AddGameView extends React.Component<any,any> {
                             <label htmlFor="date">Date</label>
                         </div>
                         <div className="col s2">
-                                <PlayerInput />
+                            <input id="challenger" type="text" className="validate"/>
                             <label htmlFor="challenger">Challenger</label>
                         </div>
                         <div className="col s2">
-                            <PlayerInput />
+                            <input id="challenger" type="text" className="validate"/>
                             <label htmlFor="defender">Defender</label>
                         </div>
                         <div className="col s2">
@@ -44,7 +70,9 @@ class AddGameView extends React.Component<any,any> {
 
                     <div className="row">
                         <div className="col s2">
-                            <button className="btn waves-effect waves-light" type="submit" name="action">Submit
+
+                            <button className="btn waves-effect waves-light" type="submit" name="action"
+                                    onClick={boundClick}>Submit
                                 <i className="material-icons right">send</i>
                             </button>
                         </div>
@@ -55,4 +83,4 @@ class AddGameView extends React.Component<any,any> {
     }
 }
 
-export default connect()(AddGameView);
+export default connect(null, mapDispatchToProps)(AddGameView);

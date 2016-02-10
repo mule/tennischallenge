@@ -4,7 +4,7 @@
 
 
 interface  IPlayer{
-    id: string;
+    id: number;
     name: string;
 }
 

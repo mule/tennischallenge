@@ -8,6 +8,16 @@ interface PlayerInputProps {
     placeholder?: string,
     editing?: boolean;
     newPlayer?: boolean;
+    onNameAdded: Function;
+}
+
+
+const mapDispatchToProps = (dispatch: Function) => {
+    return {
+        onNameAdded: (name: string) => {
+            dispatch(PlayerActions.addPlayer(name));
+        }
+    }
 }
 
 class PlayerInput extends React.Component<PlayerInputProps, any> {
@@ -33,7 +43,7 @@ class PlayerInput extends React.Component<PlayerInputProps, any> {
     }
 
     handleBlur(e: any) {
-        this.store.dispatch(PlayerActions.addPlayer({name: 'Test'}));
+
         //this.props.onSave(e.target.value);
     }
 
