@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as _ from 'lodash';
 import PlayerInput from '../components/playerInput';
 import * as GameActions from '../actions/games';
 import { connect } from 'react-redux';
@@ -33,9 +34,17 @@ class AddGameView extends React.Component<{addGame: Function},any> {
     }
 
 
+    handleChallengerChange(e: any){
+
+        this.setState(_.assign({challenger: { name: e.target.value}}));
+    }
+
+
     render() {
 
         var boundClick = this.onAddGameClick.bind(this);
+        var boundChallengerChange = this.handleChallengerChange.bind(this);
+        var challengerName = _.get(this.state, 'challenger.name', '');
 
         return (
 
@@ -47,7 +56,7 @@ class AddGameView extends React.Component<{addGame: Function},any> {
                             <label htmlFor="date">Date</label>
                         </div>
                         <div className="col s2">
-                            <input id="challenger" type="text" className="validate"/>
+                            <input id="challenger" type="text" value={challengerName} onChange={boundChallengerChange} className="validate"/>
                             <label htmlFor="challenger">Challenger</label>
                         </div>
                         <div className="col s2">
