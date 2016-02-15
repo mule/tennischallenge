@@ -1,5 +1,5 @@
-import { assign } from 'lodash';
-import { handleActions, Action } from 'redux-actions';
+    import { assign } from 'lodash';
+    import { handleActions, Action } from 'redux-actions';
 
 
 import {

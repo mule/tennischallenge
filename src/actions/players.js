@@ -1,5 +1,5 @@
 var redux_actions_1 = require('redux-actions');
 var types = require('../constants/ActionTypes');
-const addPlayer = redux_actions_1.createAction(types.ADD_PLAYER);
-exports.addPlayer = addPlayer;
+exports.AddPlayer = redux_actions_1.createAction(types.ADD_PLAYER);
+exports.ChallengerEntered = redux_actions_1.createAction(types.CHALLENGER_ENTERED);
 //# sourceMappingURL=players.js.map

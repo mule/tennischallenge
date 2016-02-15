@@ -27,3 +27,18 @@ interface IGameProps {
 interface IGameListProps{
     games: IGame[];
 }
+
+interface IPlayerCard{
+    visible: boolean;
+    name: string;
+
+}
+
+
+interface IPlayerCards{
+    challenger: IPlayerCard;
+    defender: IPlayerCard;
+
+}
+
+

@@ -18,7 +18,7 @@ class Dashboard extends React.Component<{},{}> {
                     defenderPoints: 2
                 },
                 {
-                    id: 2,
+                    id: 2 ,
                     gameType: 2,
                     date: 200,
                     challenger: {id: "1", name: "Bura"},
