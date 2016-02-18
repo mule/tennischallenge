@@ -4,6 +4,7 @@ import PlayerInput from '../components/playerInput';
 import * as GameActions from '../actions/games';
 import {ChallengerEntered} from '../actions/players';
 import { connect } from 'react-redux';
+import PlayerCard from '../components/PlayerCard';
 
 const mapDispatchToProps = (dispatch: Function) => {
     return {
@@ -19,7 +20,7 @@ const mapDispatchToProps = (dispatch: Function) => {
 
 const mapStateToProps = (state: any) => {
     return {
-        challengerCard: state.playerCards.challenger
+        playerCards: state.playerCards
     };
 }
 
@@ -27,7 +28,7 @@ const mapStateToProps = (state: any) => {
 interface IAddGameViewProps {
     addGame: Function;
     challengerEntered: Function;
-    challengerCard: IPlayerCard;
+    playerCards: any;
 }
 
 
@@ -42,37 +43,56 @@ class AddGameView extends React.Component<IAddGameViewProps,any> {
         var challenger: IPlayer;
         var defender: IPlayer;
         challenger = {id: 1, name: 'Bura'};
-        defender =  {id:2, name: 'Markku'};
-        game = {id: 1, date: 100, gameType: 1, challenger: challenger, defender: defender, challengerPoints: 0 , defenderPoints:2};
+        defender = {id: 2, name: 'Markku'};
+        game = {
+            id: 1,
+            date: 100,
+            gameType: 1,
+            challenger: challenger,
+            defender: defender,
+            challengerPoints: 0,
+            defenderPoints: 2
+        };
 
         this.props.addGame(game);
     }
 
-    onChallengerBlur(e: any){
+    onChallengerBlur(e: any) {
 
         var challengerName = e.target.value;
-        var challengerCard = this.props.challengerCard;
+        var challengerCard = this.props.playerCards.challenger;
         challengerCard.name = challengerName;
 
-        if(challengerName)
+        if (challengerName)
             challengerCard.visible = true;
         else
             challengerCard.visible = false;
 
-         this.props.challengerEntered(challengerCard);
+        this.props.challengerEntered(challengerCard);
     }
 
-    handleChallengerChange(e: any){
+    handleChallengerChange(e: any) {
 
-        this.setState(_.assign({challenger: { name: e.target.value}}));
+        this.setState(_.assign({challenger: {name: e.target.value}}));
+    }
+
+    handleDefenderChange(e: any) {
+        this.setState(_.assign({defender: {name: e.target.value}}));
     }
 
     render() {
 
         var boundClick = this.onAddGameClick.bind(this);
         var boundChallengerChange = this.handleChallengerChange.bind(this);
+        var boundDefenderChange = this.handleDefenderChange.bind(this);
+
         var boundChallengerBlur = this.onChallengerBlur.bind(this);
         var challengerName = _.get(this.state, 'challenger.name', '');
+        var defenderName = _.get(this.state, 'defender.name', '');
+
+
+        var challengerCard = <PlayerCard name={challengerName}/>
+        var defenderCard = <PlayerCard name={defenderName}/>
 
         return (
 
@@ -93,7 +113,11 @@ class AddGameView extends React.Component<IAddGameViewProps,any> {
                             <label htmlFor="challenger">Challenger</label>
                         </div>
                         <div className="col s2">
-                            <input id="challenger" type="text" className="validate"/>
+                            <input id="defender"
+                                   type="text"
+                                   className="validate"
+                                   onChange={boundDefenderChange}
+                            />
                             <label htmlFor="defender">Defender</label>
                         </div>
                         <div className="col s2">
@@ -112,13 +136,26 @@ class AddGameView extends React.Component<IAddGameViewProps,any> {
 
                     <div className="row">
                         <div className="col s2">
-                            <button className="btn waves-effect waves-light" type="submit" name="action"
-                                    onClick={boundClick}>Submit
+                            <button className="btn waves-effect waves-light"
+                                    type="submit"
+                                    name="action"
+                                    onClick={boundClick}>
+                                Submit
                                 <i className="material-icons right">send</i>
                             </button>
                         </div>
                     </div>
                 </form>
+                <div className="row valign-wrapper">
+                    <div className="col s4">{challengerCard}</div>
+                    <div className="col s1">
+                        <div className="valign">
+                            vs.
+                        </div>
+                    </div>
+                    <div className="col s4">{defenderCard}</div>
+                    <div className="col s3"></div>
+                </div>
             </div>
         );
     }
